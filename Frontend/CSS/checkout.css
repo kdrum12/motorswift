@@ -1,0 +1,58 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f3f4f6;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Confirmation Container */
+.confirmation-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+}
+
+.confirmation-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.confirmation-container p {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #555;
+}
+
+.confirmation-actions {
+  margin-top: 20px;
+}
+
+.confirmation-actions .btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.confirmation-actions .btn:hover {
+  background-color: #0056b3;
+}

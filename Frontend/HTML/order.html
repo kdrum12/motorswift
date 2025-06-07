@@ -1,0 +1,38 @@
+<!-- order.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Vehicle</title>
+  <link rel="stylesheet" href="../CSS/oder.css" />
+</head>
+<body>
+  <header>
+    <h1>Book Your Vehicle</h1>
+  </header>
+
+  <main class="order-container">
+    <div class="vehicle-summary">
+      <img id="vehicle-image" src="" alt="Vehicle" />
+      <h2 id="vehicle-name">Vehicle Name</h2>
+      <p id="vehicle-type">Type: </p>
+      <p id="vehicle-price">Price: </p>
+    </div>
+
+    <form id="order-form">
+      <label for="pickup_date">Pickup Date:</label>
+      <input type="date" id="pickup_date" name="pickup_date" required />
+
+      <label for="location">Pickup Location:</label>
+      <input type="text" id="location" name="location" required />
+
+      <input type="hidden" id="vehicle_id" name="vehicle_id" />
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </main>
+
+  <script src="../JS/oder.js"></script>
+</body>
+</html>

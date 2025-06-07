@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MotoSwift</title>
+  <link rel="stylesheet" href="../CSS/index.css" />
+</head>
+<body>
+  <!-- Welcome Section -->
+  <section class="overlay">
+    <div class="welcome-text">
+      <p><strong>WELCOME</strong> TO MOTOSWIFT PLATFORM</p>
+      <p><strong>Your</strong> journey starts here. Choose your dream ride today!</p>
+      <a href="../HTML/signup.html" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="about-content">
+      <h2>About MotoSwift</h2>
+      <p>
+        MotoSwift is your reliable partner in vehicle ordering. We provide a seamless experience
+        for individuals and businesses looking for quick, comfortable, and safe transport.
+      </p>
+      <p>
+        Our platform offers a wide range of vehicles including cars, bikes, and buses,
+        all available at your fingertips.
+      </p>
+      <p>
+        With MotoSwift, you get real-time tracking, easy ordering, and support that’s always ready to help.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-choose">
+    <div class="section-title">
+      <h2>Why Choose MotoSwift?</h2>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <img src="../CSS/img/fast.png" alt="Fast Delivery" />
+        <h3>Fast & Reliable</h3>
+        <p>Get your vehicle delivered quickly and safely wherever you are.</p>
+      </div>
+      <div class="feature">
+        <img src="../CSS/img/customer.jpg" alt="Customer Support" />
+        <h3>24/7 Support</h3>
+        <p>We're here any time you need help with your booking.</p>
+      </div>
+      <div class="feature">
+        <img src="../CSS/img/option.jpg" alt="Vehicle Options" />
+        <h3>Wide Options</h3>
+        <p>Choose from a wide variety of vehicles to suit your needs.</p>
+      </div>
+    </div>
+  </section>
+</body>
+
+<footer class="footer">
+  <p>© <span id="year"></span> MotoSwift. All rights reserved.</p>
+</footer>
+
+<script>
+  // Set current year automatically
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</html>

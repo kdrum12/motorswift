@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Profile - MotoSwift</title>
+  <link rel="stylesheet" href="../CSS/profile.css" />
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
+    h1 { margin-bottom: 1rem; }
+    .profile-info { margin-bottom: 2rem; }
+    label { font-weight: bold; display: block; margin-top: 1rem; }
+    button { cursor: pointer; padding: 0.5rem 1rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>User Profile</h1>
+  <div class="profile-info">
+    <p><strong>Username:</strong> <span id="username">Loading...</span></p>
+    <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+    <p><strong>Member since:</strong> <span id="created_at">Loading...</span></p>
+  </div>
+
+  <h2>Update Email</h2>
+  <form id="updateEmailForm">
+    <input type="email" id="newEmail" placeholder="New email" required />
+    <button type="submit">Update Email</button>
+  </form>
+
+  <button id="logoutBtn">Logout</button>
+
+  <script>
+    fetch('backend/api/profile.php')
+      .then(res => {
+        if (res.status === 401) {
+          alert('Please log in first.');
+          window.location.href = 'login.html';
+          throw new Error('Unauthorized');
+        }
+        return res.json();
+      })
+      .then(user => {
+        document.getElementById('username').textContent = user.username;
+        document.getElementById('email').textContent = user.email;
+        document.getElementById('created_at').textContent = new Date(user.created_at).toLocaleDateString();
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Failed to load profile info.');
+      });
+
+    document.getElementById('updateEmailForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const newEmail = document.getElementById('newEmail').value;
+
+      fetch('backend/api/update-profile.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: newEmail }),
+      })
+        .then(res => res.json())
+        .then(data => {
+          alert(data.message);
+          if (!data.error) {
+            document.getElementById('email').textContent = newEmail;
+            document.getElementById('newEmail').value = '';
+          }
+        })
+        .catch(() => alert('Failed to update email.'));
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      fetch('backend/api/logout.php', { method: 'POST' })
+        .then(() => {
+          window.location.href = 'login.html';
+        });
+    });
+  </script>
+</body>
+</html>
